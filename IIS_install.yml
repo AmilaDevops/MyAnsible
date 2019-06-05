@@ -3,17 +3,18 @@
   vars:
     ansible_site_path: c:\inetpub\wwwroot\ansibletest
     staging_path: D:\deploy
-           
- - name: create staging path 
-   win_file: path={{ staging_path }} state=directory
+  tasks:
+  
+  - name: create staging path 
+    win_file: path={{ staging_path }} state=directory
      
- - name: Copying IIS installing PS1 to windows server
-   win_copy: 
+  - name: Copying IIS installing PS1 to windows server
+    win_copy: 
        src: /var/lib/awx/projects/_14__firstproject_amila/iis_install.ps1
        dest: "{{ staging_path }}\\"
          
- - name: Installing IIS with powershell script
-   win_shell: .\iis_install.ps1
-   args:
+  - name: Installing IIS with powershell script
+    win_shell: .\iis_install.ps1
+    args:
         chdir: "{{ staging_path }}"
      
