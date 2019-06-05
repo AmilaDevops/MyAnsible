@@ -1,0 +1,16 @@
+--- # install and configure IIS in a windows 10 host/node
+- hosts: win10
+  become: yes
+  tasks:
+  - name: Download Microsoft .NET Framework 4.7.2 installer
+    win_get_url:
+        url: https://dotnet.microsoft.com/download/thank-you/net472
+        dest: C:\tmpfiles\dotnet
+
+  - name: Run Microsoft .NET Framework 4.7.2 installer  
+    win_command: .\NDP472-KB4054531-Web.exe
+      args:
+         chdir: C:\tmpfiles\dotnet      
+         
+  - name: Reboot as required by Microsoft .NET Framework 4.7.2 installer
+    win_reboot:       
