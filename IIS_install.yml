@@ -1,16 +1,19 @@
---- # install and configure IIS in a windows 10 host/node
-- hosts: win10
-  become: yes
-  tasks:
-  - name: Download Microsoft .NET Framework 4.7.2 installer
-    win_get_url:
-        url: https://dotnet.microsoft.com/download/thank-you/net472
-        dest: C:\tmpfiles\dotnet
-
-  - name: Run Microsoft .NET Framework 4.7.2 installer  
-    win_command: .\NDP472-KB4054531-Web.exe
-      args:
-         chdir: C:\tmpfiles\dotnet      
+---
+- hosts: windows
+  vars:
+    ansible_site_path: c:\inetpub\wwwroot\ansibletest
+    staging_path: D:\deploy
+           
+   - name: create staging path to copy the IIS installation file      
+     win_file: path={{ staging_path }} state=directory
+     
+   - name: Copying IIS installing PS1 to windows server
+     win_copy: 
+         src: /var/lib/awx/projects/_14__firstproject_amila/iis_install.ps1
+         dest: "{{ staging_path }}\\"
          
-  - name: Reboot as required by Microsoft .NET Framework 4.7.2 installer
-    win_reboot:       
+   - name: Installing IIS with powershell script
+     win_shell: .\iis_install.ps1
+     args:
+         chdir: "{{ staging_path }}"
+     
