@@ -19,3 +19,7 @@
         src: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}.7z"   
         dest: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}"         
     
+   - name: copy directory
+     win_copy:
+        src: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}\\CoreAutoUpdates-{{ app_version }}\\WebSite"
+        dest: C:\inetpub\wwwroot\WebService
