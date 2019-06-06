@@ -6,9 +6,10 @@
            
   - name: Download artifacts to the windows node      
     win_get_url:
-         url: "ftp://ftp.box.com/Releases/CoreWebServices/master/CoreAutoUpdates-{{ app_version }}.7z"
-         dest: "{{ staging_path }}\\"
-         url_username: updates@wheygroup.com
-         url_password: Abcd123*
+       url: "ftp://ftp.box.com/Releases/CoreWebServices/master/CoreAutoUpdates-{{ app_version }}.7z"
+       dest: "{{ staging_path }}\\"
+       url_username: updates@wheygroup.com
+       url_password: Abcd123*
+ 
  
         
