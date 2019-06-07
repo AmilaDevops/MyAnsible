@@ -22,12 +22,11 @@
       application_pool: 'Webservice8087'
       physical_path: "{{ staging_path }}"  
       ssl: true      
-   
-      
+     
   - name: Restart an application pool
     win_iis_webapppool:
       name: Webservice8087
-      state: restart  
+      state: restarted  
 
   - name: Create App Pool with .NET 4.0
     win_iis_webapppool:
@@ -50,4 +49,4 @@
   - name: Restart an application pool
     win_iis_webapppool:
       name: Webportals8088
-      state: restart     
+      state: restarted     
