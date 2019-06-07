@@ -20,6 +20,8 @@
     win_get_url:
        url: "ftp://ftp.box.com/Releases/WebPortals/{{ branch_name }}/WebPortalsAutoUpdate-{{ Web_site_app_version }}.7z"
        dest: "{{ staging_path }}\\"
+       url_username: updates@wheygroup.com
+       url_password: Abcd123* 
  
   - name: Unzip the downloaded artifact file
     win_unzip:
