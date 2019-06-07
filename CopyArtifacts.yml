@@ -49,9 +49,9 @@
   - name: copy directory
     win_copy:
         src: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\WebSite"
-        dest: "{{ staging_path }}\\Webservices"
+        dest: "{{ webservice_folder_path }}"
         
   - name: copy directory
     win_copy:
         src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
-        dest: "{{ staging_path }}\\Webportals"        
+        dest: "{{ webportal_folder_path }}"        
