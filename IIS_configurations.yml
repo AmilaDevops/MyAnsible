@@ -1,0 +1,16 @@
+---
+- hosts: win10
+  vars:
+    staging_path: C:\inetpub\wwwroot\ansibledeployments\Webservices\WebSite
+  tasks:
+
+- name: Webportals IIS site creation
+  win_iis_website:
+    name: "Webportals8088"
+    state: started
+    port: 8088
+    ip: 127.0.0.1
+    hostname: 
+    application_pool: "Webportals8088"
+    physical_path: "{{ staging_path }}"   
+  register: website
