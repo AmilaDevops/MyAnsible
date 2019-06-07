@@ -4,11 +4,12 @@
     staging_path: C:\inetpub\wwwroot\ansibledeployments\Webservices\WebSite
   tasks:
 
-  - name: App Pool with .NET 4.0
+  - name: Create App Pool with .NET 4.0
     win_iis_webapppool:
       name: Webservice8087
       state: started
-      attributes: managedRuntimeVersion:v4.0
+      attributes: 
+         managedRuntimeVersion: v4.0
     
   
   - name: Webportals IIS site creation
