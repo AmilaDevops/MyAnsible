@@ -57,3 +57,8 @@
         src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
         dest: "{{ webportal_folder_path }}"  
         remote_src: True        
+        
+  - name: Remove directory
+    win_file:
+        path: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}.7z"    
+        state: absent        
