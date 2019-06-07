@@ -1,25 +1,42 @@
 ---
 - hosts: win10
   vars:
-    ansible_site_path: 
-    staging_path: D:\deploy
-      
-    
-  tasks:  
+    staging_path: C:\inetpub\wwwroot\ansibledeployments        
+  tasks: 
+
+  - name: create directory 
+    win_file:
+       path: "{{ staging_path }}"
+       state: directory    
            
   - name: Download artifacts to the windows node      
     win_get_url:
-       url: "ftp://ftp.box.com/Releases/CoreWebServices/{{ branch_name }}/CoreAutoUpdates-{{ app_version }}.7z"
+       url: "ftp://ftp.box.com/Releases/CoreWebServices/{{ branch_name }}/CoreAutoUpdates-{{ Web_service_app_version }}.7z"
        dest: "{{ staging_path }}\\"
        url_username: updates@wheygroup.com
-       url_password: Abcd123*
+       url_password: Abcd123* 
+ 
+  - name: Download artifacts to the windows node      
+    win_get_url:
+       url: "ftp://ftp.box.com/Releases/WebPortals/{{ branch_name }}/WebPortalsAutoUpdate-{{ Web_site_app_version }}.7z"
+       dest: "{{ staging_path }}\\"
  
   - name: Unzip the downloaded artifact file
     win_unzip:
-        src: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}.7z"   
-        dest: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}"         
+        src: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}.7z"   
+        dest: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}"     
+
+  - name: Unzip the downloaded artifact file
+    win_unzip:
+        src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}.7z"   
+        dest: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}"            
     
-   - name: copy directory
-     win_copy:
-        src: "{{ staging_path }}\\CoreAutoUpdates-{{ app_version }}\\CoreAutoUpdates-{{ app_version }}\\WebSite"
-        dest: C:\inetpub\wwwroot\WebService
+  - name: copy directory
+    win_copy:
+        src: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\WebSite"
+        dest: "{{ staging_path }}\\Webservices"
+        
+  - name: copy directory
+    win_copy:
+        src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
+        dest: "{{ staging_path }}\\Webportals"        

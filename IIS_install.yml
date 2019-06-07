@@ -1,15 +1,14 @@
 ---
 - hosts: win10
   vars:
-    ansible_site_path: c:\inetpub\wwwroot\ansibletest
-    staging_path: D:\deploy
+    staging_path: C:\townsuite_deploy
   tasks:
   
-  - name: create staging path 
-    win_file: 
+  - name: create directory 
+    win_file:
        path: "{{ staging_path }}"
-       state=directory
-     
+       state: directory       
+  
   - name: Copying IIS installing PS1 to windows server
     win_copy: 
        src: /var/lib/awx/projects/_14__firstproject_amila/iis_install.ps1
