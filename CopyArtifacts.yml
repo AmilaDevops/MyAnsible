@@ -48,10 +48,10 @@
     
   - name: copy directory
     win_copy:
-        src: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\WebSite"
+        remote_src: "{{ staging_path }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\CoreAutoUpdates-{{ Web_service_app_version }}\\WebSite"
         dest: "{{ webservice_folder_path }}"
         
   - name: copy directory
     win_copy:
-        src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
+        remote_src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
         dest: "{{ webportal_folder_path }}"        
