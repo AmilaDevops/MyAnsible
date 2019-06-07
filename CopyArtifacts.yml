@@ -54,6 +54,6 @@
         
   - name: copy directory
     win_copy:
-        remote_src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
+        src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}\\WebPortalsAutoUpdate\\WebSite"
         dest: "{{ webportal_folder_path }}"  
         remote_src: True        
