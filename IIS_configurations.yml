@@ -13,12 +13,12 @@
   
   - name: Webportals IIS site creation
     win_iis_website:
-      name: "Webservice8087"
+      name: 'Webservice8087'
       state: started
       port: 8087
       ip: 127.0.0.1
       hostname: 
-      application_pool: "Webservice8087"
+      application_pool: 'Webservice8087'
       physical_path: "{{ staging_path }}"  
       ssl: true      
    
