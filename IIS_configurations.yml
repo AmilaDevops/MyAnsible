@@ -6,7 +6,7 @@
 
   - name: App Pool with .NET 4.0
     win_iis_webapppool:
-      name: 'Webservice8087'
+      name: Webservice8087
       state: started
       attributes: managedRuntimeVersion:v4.0
     
