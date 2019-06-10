@@ -28,6 +28,8 @@
       name: Webservice8087
       state: started 
       physical_path: "{{ staging_path }}"
+      port: 8087
+      hostname: localhost
       
   - name: Add a HTTPS binding
     win_iis_webbinding:
