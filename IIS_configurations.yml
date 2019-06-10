@@ -20,7 +20,7 @@
     
   - name: Webportals IIS site creation
     win_iis_website:
-      name: 'Webservice8087'
+      name: Webservice8087
       state: started
       port: 8087
       ip: 127.0.0.1
@@ -31,11 +31,11 @@
      
   - name: Add a HTTPS binding
     win_iis_webbinding:
-      name: 'Webservice8087'
+      name: Webservice8087
       protocol: https
       port: 8087
       ip: 127.0.0.1
-      certificate_hash: B0D0FA8408FC67B230338FCA584D03792DA73F4C
+      certificate_hash: a373a5ce2467e3b565825446e48e0bf416c72488
       state: present   
      
   - name: Restart an application pool
