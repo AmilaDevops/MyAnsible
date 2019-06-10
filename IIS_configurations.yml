@@ -28,7 +28,7 @@
       name: Webservice8087
       state: started 
       physical_path: "{{ staging_path }}"
-      port: 8087
+      port: 8086
       hostname: 
       
   - name: Add a HTTPS binding
@@ -43,8 +43,10 @@
   - name: Restart the  website
     win_iis_website:
       name: Webservice8087
-      state: restarted       
-          
+      state: restarted
+      port: 8087       
+      hostname:
+      
   - name: Restart an application pool
     win_iis_webapppool:
       name: Webservice8087
