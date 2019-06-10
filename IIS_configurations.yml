@@ -27,7 +27,8 @@
     win_iis_website:
       name: Webservice8087
       state: started 
-   
+      physical_path: "{{ staging_path }}"
+      
   - name: Add a HTTPS binding
     win_iis_webbinding:
       name: Webservice8087
