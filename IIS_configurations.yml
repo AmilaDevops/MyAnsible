@@ -2,13 +2,14 @@
 - hosts: win10
   vars:
     staging_path: C:\inetpub\wwwroot\ansibledeployments\Webservices\WebSite
+    staging_path_1: C:\inetpub\wwwroot\ansibledeployments\Webportals\WebSite 
   tasks:
 
-  - name: Copy webconfig files 
-    win_copy:
-        src: ""
-        dest: ""
-        remote_src: True
+ # - name: Copy webconfig files 
+  #  win_copy:
+   #     src: ""
+    #    dest: ""
+     #   remote_src: True
   
   - name: Create App Pool with .NET 4.0
     win_iis_webapppool:
@@ -17,7 +18,6 @@
       attributes: 
          managedRuntimeVersion: v4.0
     
-  
   - name: Webportals IIS site creation
     win_iis_website:
       name: 'Webservice8087'
@@ -29,11 +29,20 @@
       physical_path: "{{ staging_path }}"  
       ssl: true      
      
+  - name: Add a HTTPS binding
+    win_iis_webbinding:
+      name: 'Webservice8087'
+      protocol: https
+      port: 8087
+      ip: 127.0.0.1
+      certificate_hash: B0D0FA8408FC67B230338FCA584D03792DA73F4C
+      state: present   
+     
   - name: Restart an application pool
     win_iis_webapppool:
       name: Webservice8087
       state: restarted  
-
+     
   - name: Create App Pool with .NET 4.0
     win_iis_webapppool:
       name: Webportals8088
@@ -46,11 +55,11 @@
       name: 'Webportals8088'
       state: started
       port: 8088
-      ip: 127.0.0.1
-      hostname: 
+      ip: 
+      hostname: localhost
       application_pool: 'Webportals8088'
-      physical_path: "{{ staging_path }}"  
-      ssl: true     
+      physical_path: "{{ staging_path_1 }}"  
+      ssl: false     
       
   - name: Restart an application pool
     win_iis_webapppool:
