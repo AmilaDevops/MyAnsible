@@ -40,10 +40,11 @@
       certificate_hash: a373a5ce2467e3b565825446e48e0bf416c72488
       state: present  
       
-  - name: Restart the  website
+  - name: start a new  website
     win_iis_website:
       name: Webservice8087
-      state: restarted
+      state: started
+      physical_path: "{{ staging_path }}"
       port: 8087       
       hostname:
       
