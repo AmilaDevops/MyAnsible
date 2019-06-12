@@ -10,6 +10,14 @@
    #     src: ""
     #    dest: ""
      #   remote_src: True
+     
+  - name: Install IIS Web-Server with sub features and management tools
+    win_feature:
+      name: "Web-Server,Web-Common-Http,Web-Filtering,Web-Dir-Browsing,Web-Default-Doc"
+      state: present
+      restart: True
+      include_sub_features: True
+      include_management_tools: True       
   
   - name: Create App Pool with .NET 4.0
     win_iis_webapppool:
