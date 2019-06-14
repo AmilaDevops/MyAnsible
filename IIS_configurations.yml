@@ -55,6 +55,7 @@
       physical_path: "{{ staging_path }}"
       port: 8087       
       hostname:
+      application_pool: 'Webservice8087'
       parameters: logfile.directory:c:\inetpub\logs\
       
   - name: Restart an application pool

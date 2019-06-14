@@ -2,18 +2,19 @@
 # Get-WindowsOptionalFeature -Online | where FeatureName -like 'IIS-*'
 
 
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-Performance
-#Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
-#Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET46
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET47
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-Performance -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45 -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET46 -ALL
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET47 -ALL
+
 
 choco install urlrewrite -y
 choco install dotnetcore-runtime -y
