@@ -47,7 +47,7 @@
     win_unzip:
         src: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}.7z"   
         dest: "{{ staging_path }}\\WebPortalsAutoUpdate-{{ Web_site_app_version }}" 
-        recurse: True
+        recurse: yes
         delete_archive: True        
     
   - name: copy directory
