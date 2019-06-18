@@ -6,7 +6,10 @@
     webportal_folder_path: "{{ staging_path }}\\Webportals"    
     
   tasks: 
-
+  
+  - name: run below powershell command for PSCX powershell cmdlets modules
+    win_command: powershell.exe Install-Module  -AllowClobber -Name Pscx -RequiredVersion 3.2.2
+  
   - name: create directory 
     win_file:
        path: "{{ staging_path }}"
