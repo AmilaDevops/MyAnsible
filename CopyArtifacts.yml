@@ -1,5 +1,5 @@
 ---
-- hosts: win10
+- hosts: qa03
   vars:
     staging_path: C:\inetpub\wwwroot\ansibledeployments  
     webservice_folder_path: "{{ staging_path }}\\Webservices"
