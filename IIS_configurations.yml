@@ -1,5 +1,5 @@
 ---
-- hosts: win10
+- hosts: qa03
   vars:
     staging_path: C:\inetpub\wwwroot\ansibledeployments\Webservices\WebSite
     staging_path_1: C:\inetpub\wwwroot\ansibledeployments\Webportals\WebSite 
