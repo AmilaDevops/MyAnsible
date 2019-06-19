@@ -1,5 +1,5 @@
 ---
-- hosts: win10
+- hosts: qa03
   vars:
     staging_path: C:\townsuite_deploy
   tasks:
