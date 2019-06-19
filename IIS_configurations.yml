@@ -38,7 +38,7 @@
       protocol: https
       port: 8087
       hostname: localhost
-      certificate_hash: a373a5ce2467e3b565825446e48e0bf416c72488
+      certificate_hash: 96d119fc0b27be7f0ce3a86b19d6f590f444bc38
       state: present  
       
   - name: create and start a new  website
