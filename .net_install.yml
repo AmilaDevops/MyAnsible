@@ -2,6 +2,12 @@
 - hosts: win10
   
   tasks:
+  
+  - name: create directory 
+    win_file:
+        path:  C:\tmpfiles
+        state: directory
+  
   - name: Download Microsoft .NET Framework 4.7.2 installer
     win_get_url:
         url: https://dotnet.microsoft.com/download/thank-you/net472
