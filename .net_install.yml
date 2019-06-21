@@ -5,7 +5,8 @@
   
   - name: create directory 
     win_file:
-        path:  C:\tmpfiles\dotnet
+        path:  C:\tmpfiles\
+        suffix: dotnet
         state: directory
   
   - name: Download Microsoft .NET Framework 4.7.2 installer
