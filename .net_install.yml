@@ -5,12 +5,12 @@
   
   - name: create directory 
     win_file:
-        path: C:\tmpfiles\net472
+        path:  C:\tmpfiles\net472
         state: directory
   
   - name: Download Microsoft .NET Framework 4.7.2 installer
-    win_get_url:
-        url: "https://dotnet.microsoft.com/download/thank-you/net472"
+    win_command: powershell.exe wget https://dotnet.microsoft.com/download/thank-you/net472
+        #url: "https://dotnet.microsoft.com/download/thank-you/net472"
         dest: C:\tmpfiles\net472
 
   - name: Run Microsoft .NET Framework 4.7.2 installer  
