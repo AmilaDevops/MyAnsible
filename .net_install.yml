@@ -1,6 +1,6 @@
 --- # install and configure IIS in a windows 10 host/node
 - hosts: win10
-  become: yes
+  
   tasks:
   - name: Download Microsoft .NET Framework 4.7.2 installer
     win_get_url:
