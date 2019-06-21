@@ -10,7 +10,7 @@
   
   - name: Download Microsoft .NET Framework 4.7.2 installer
     win_get_url:
-        url: https://dotnet.microsoft.com/download/thank-you/net472
+        url: "https://dotnet.microsoft.com/download/thank-you/net472"
         dest: C:\tmpfiles
 
   - name: Run Microsoft .NET Framework 4.7.2 installer  
