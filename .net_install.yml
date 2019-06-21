@@ -5,16 +5,16 @@
   
   - name: create directory 
     win_file:
-        path:  C:\tmpfiles
+        path:  C:\tmpfiles\net472
         state: directory
   
   - name: Download Microsoft .NET Framework 4.7.2 installer
     win_get_url:
         url: "https://dotnet.microsoft.com/download/thank-you/net472"
-        dest: C:\tmpfiles
+        dest: C:\tmpfiles\net472
 
   - name: Run Microsoft .NET Framework 4.7.2 installer  
     win_command: .\NDP472-KB4054531-Web.exe
     args:
-        chdir: C:\tmpfiles   
+        chdir: C:\tmpfiles\net472   
              
