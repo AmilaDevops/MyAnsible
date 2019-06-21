@@ -5,7 +5,7 @@
   
   - name: create directory 
     win_file:
-        path:  C:\tmpfiles\
+        path:  C:\tmpfiles\dotnet
         suffix: dotnet
         state: directory
   
