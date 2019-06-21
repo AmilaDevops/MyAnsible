@@ -8,11 +8,16 @@
         path:  C:\tmpfiles\net472
         state: directory
   
-  - name: Download Microsoft .NET Framework 4.7.2 installer
-    win_command: powershell.exe wget https://dotnet.microsoft.com/download/thank-you/net472
+  #- name: Download Microsoft .NET Framework 4.7.2 installer
+   # win_command: powershell.exe wget https://dotnet.microsoft.com/download/thank-you/net472
         #url: "https://dotnet.microsoft.com/download/thank-you/net472"
-    args:
-        chdir: C:\tmpfiles\net472
+    #args:
+      #  chdir: C:\tmpfiles\net472
+      
+  - name: Download Microsoft .NET Framework 4.7.2 installer
+    win_get_url:
+        url: 'https://dotnet.microsoft.com/download/thank-you/net472'
+        dest: 'C:\\tmpfiles\\net472'        
 
   - name: Run Microsoft .NET Framework 4.7.2 installer  
     win_command: .\NDP472-KB4054531-Web.exe
