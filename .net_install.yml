@@ -5,7 +5,7 @@
   
   - name: create directory 
     win_file:
-        path:  C:\tmpfiles\net472
+        path:  C:\tmpfiles\
         state: directory
   
   #- name: Download Microsoft .NET Framework 4.7.2 installer
@@ -14,19 +14,19 @@
     #args:
       #  chdir: C:\tmpfiles\net472
       
-  #- name: Download Microsoft .NET Framework 4.7.2 installer
-   # win_get_url:
-    #  url: 'https://dotnet.microsoft.com/download/thank-you/net472'
-     # dest: 'C:\tmpfiles\net472'
-      #force: yes      
+  - name: Download Microsoft .NET Framework 4.7.2 installer
+    win_get_url:
+       dest: 'C:\tmpfiles'
+       url: 'https://dotnet.microsoft.com/download/thank-you/net472'
+       force: yes      
 
   #- name: Run Microsoft .NET Framework 4.7.2 installer  
    # win_command: .\NDP472-KB4054531-Web.exe
     #args:
      #   chdir: C:\tmpfiles\net472 
 
-  - name: Install .net 4.7
-    win_chocolatey:
-      name: dotnet4.7    
-      version: '4.7.2' 
+  #- name: Install .net 4.7
+   # win_chocolatey:
+    #  name: dotnet4.7    
+     # version: '4.7.2' 
         
